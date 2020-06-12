@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> shuffle </title>
+  <style> 
+    body {
+      text-align: center;
+      background-color: gray;
+    }
+    img {
+      height: 150px;
+      width: 150px;
+      border: 0;
+    }
+    #pics {
+      width: 450px;
+      heigth: 450px;
+      font-size: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="pics">
+      <img src="pic1.jpg" alt="pic1">
+      <img src="pic2.jpg" alt="pic2">
+      <img src="pic3.jpg" alt="pic3">
+      <img src="pic4.jpg" alt="pic4">
+      <img src="pic5.jpg" alt="pic5">
+      <img src="pic6.jpg" alt="pic6">
+      <img src="pic7.jpg" alt="pic7">
+      <img src="pic8.jpg" alt="pic8">
+      <img src="pic9.jpg" alt="pic9">
+  </div>
+  
+
+  <input type="button" value = "Refresh" onclick="history.go(0)" />
+
+
+  <script>
+    var plaatjes = document.getElementsByTagName("img");
+    var randomNumbers = [];
+    var random = 0;
+    while(randomNumbers.length < 9) {
+      random = Math.floor(Math.random()*9)+1;
+      if(randomNumbers.lastIndexOf(random) == -1) {
+        randomNumbers.push(random);
+      }
+    }
+    random = 0;
+    for(var plaatje in plaatjes) {
+      plaatjes[plaatje].src = "pic" + randomNumbers[random] + ".jpg";
+      random++;
+    }
+  </script>
+</body>
+</html>
+
+
